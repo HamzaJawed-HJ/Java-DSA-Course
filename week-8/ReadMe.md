@@ -1,4 +1,4 @@
-# 🚀 **DSA Lab – Class 6 : Queue (Array + Linked List Implementation)**
+# 🚀 **DSA Lab – Class 8 : Queue (Array + Linked List Implementation)**
 
 Welcome back, developers!
 Today we explore another powerful linear data structure — **the Queue** 🔄
