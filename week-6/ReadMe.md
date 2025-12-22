@@ -410,6 +410,13 @@ Backward: 20 ⇆ 15 ⇆ 10 ⇆ null
             return;
         }
 
+        
+        // Update tail if last node is being deleted
+        if (temp.next == null) {
+            tail = temp.prev;
+        }
+
+
         // Update links
         if (temp.next != null) temp.next.prev = temp.prev;
         if (temp.prev != null) temp.prev.next = temp.next;
