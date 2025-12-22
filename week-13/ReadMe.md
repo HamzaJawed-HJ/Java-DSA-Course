@@ -442,7 +442,7 @@ public class Main {
 
 ---
 
-## 🧠 **How to Explain This in Lab**
+## 🧠 ** Lab Summary**
 
 ### 🔹 Step 1: Start with `Node`
 
@@ -579,70 +579,6 @@ public boolean search(int value) {
 
 * Average → `O(log n)`
 * Worst → `O(n)`
-
----
-
-## 7️⃣ HEIGHT of BST (Iterative – Level Order)
-
-```java
-public int height() {
-
-    if (root == null) return -1;
-
-    Queue<Node> queue = new LinkedList<>();
-    queue.add(root);
-    int height = -1;
-
-    while (!queue.isEmpty()) {
-        int size = queue.size();
-        height++;
-
-        for (int i = 0; i < size; i++) {
-            Node node = queue.poll();
-
-            if (node.leftChild != null)
-                queue.add(node.leftChild);
-            if (node.rightChild != null)
-                queue.add(node.rightChild);
-        }
-    }
-    return height;
-}
-```
-
----
-
-## 8️⃣ MINIMUM Value in BST
-
-```java
-public int findMin() {
-
-    if (root == null) return -1;
-
-    Node current = root;
-    while (current.leftChild != null)
-        current = current.leftChild;
-
-    return current.value;
-}
-```
-
----
-
-## 9️⃣ MAXIMUM Value in BST
-
-```java
-public int findMax() {
-
-    if (root == null) return -1;
-
-    Node current = root;
-    while (current.rightChild != null)
-        current = current.rightChild;
-
-    return current.value;
-}
-```
 
 ---
 
