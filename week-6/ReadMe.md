@@ -437,9 +437,107 @@ After deleting 20:
 [10] ⇄ [30]
 
 ```
+---
+
+
+## ✅ deleteAfterValue(int value)
+
+```java
+public void deleteAfterValue(int value) {
+    if (head == null) {
+        System.out.println("List is empty");
+        return;
+    }
+
+    Node temp = head;
+
+    // find the node with given value
+    while (temp != null && temp.data != value) {
+        temp = temp.next;
+    }
+
+    if (temp == null) {
+        System.out.println("Value not found");
+        return;
+    }
+
+    // no next node to delete
+    if (temp.next == null) {
+        System.out.println("No next node exists");
+        return;
+    }
+
+    System.out.println(temp.next.data + " deleted.");
+
+    // CASE 1: deleting tail
+    if (temp.next.next == null) {
+        temp.next = null;
+        tail = temp;
+        return;
+    }
+
+    // CASE 2: deleting a middle node
+    temp.next = temp.next.next;
+    temp.next.prev = temp;
+}
+```
+---
+
+## ✅ deleteBeforeValue(int value)
+
+```java
+public void deleteBeforeValue(int value) {
+    if (head == null) {
+        System.out.println("List is empty");
+        return;
+    }
+
+    Node temp = head;
+
+    // find the node with given value
+    while (temp != null && temp.data != value) {
+        temp = temp.next;
+    }
+
+    if (temp == null) {
+        System.out.println("Value not found");
+        return;
+    }
+
+    // no previous node to delete
+    if (temp.prev == null) {
+        System.out.println("No previous node exists");
+        return;
+    }
+
+    System.out.println(temp.prev.data + " deleted.");
+
+    // CASE 1: deleting head (previous node is head)
+    if (temp.prev.prev == null) {
+        head = temp;
+        temp.prev = null;
+        return;
+    }
+
+    // CASE 2: deleting a middle node
+    temp.prev = temp.prev.prev;
+    temp.prev.next = temp;
+}
+```
+
+---
+
+## 🔁 Symmetry with deleteBefore (great for teaching)
+
+| Operation     | Pointer first | Pointer second |
+| ------------- | ------------- | -------------- |
+| Delete Before | `prev`        | `next`         |
+| Delete After  | `next`        | `prev`         |
 
 
 ---
+
+
 
 
 ## 🔹 Challenge 1 – Reverse DLL (Without Creating New List)
